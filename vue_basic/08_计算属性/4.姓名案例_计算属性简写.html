@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<title>姓名案例_计算属性实现</title>
 		<!-- 引入Vue -->
+		<!-- 很多时候我们的计算属性 只需要读取 不需要修改 所以只需要有 get 即可 -->
+		<!-- 这种情况下我们就可以对计算属性进行简写 -->
 		<script type="text/javascript" src="../js/vue.js"></script>
 	</head>
 	<body>
@@ -39,6 +41,11 @@
 					}
 				} */
 				//简写
+				/*fullName:function(){
+
+				  }
+				*/
+
 				fullName(){
 					console.log('get被调用了')
 					return this.firstName + '-' + this.lastName
