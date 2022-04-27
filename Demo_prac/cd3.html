@@ -9,8 +9,9 @@
 <body>
 <!-- 准备好一个容器-->
 <div id="root">
-    <h2>今天天气很{{info}}</h2>
-    <button @click="changeWeather">切换天气</button>
+    姓：<input type="text" v-model="firstName"> <br/><br/>
+    名：<input type="text" v-model="lastName"> <br/><br/>
+    全名：<span>{{fullName}}</span> <br/><br/>
 </div>
 </body>
 
@@ -20,21 +21,16 @@
     new Vue({
         el:'#root',
         data:{
-            isHot:true
-        },
-        computed:{
-            info(){
-                return this.isHot ? '炎热' : '寒冷'
-            }
-        },
-        methods:{
-            changeWeather(){
-                this.isHot = !this.isHot
-            }
+            firstName:'张',
+            lastName:'三',
+            fullName:'张-三'
         },
         watch:{
-            isHot(newValue,oldValue){
-                console.log('isHot被修改了',newValue,oldValue)
+            firstName(val){
+                this.fullName = val + '-' + this.lastName
+            },
+            lastName(val){
+                this.fullName = this.firstName + '-' + val
             }
         }
     })
